@@ -1,0 +1,119 @@
+:root {
+  --papel: #f3efe6;
+  --tinta: #14213d;
+  --tinta-suave: #5b6478;
+  --quadra: #c8553d;
+  --raio: 6px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--papel);
+  color: var(--tinta);
+  font-family: 'Barlow', system-ui, sans-serif;
+  min-height: 100vh;
+}
+
+.pagina {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 56px 24px 80px;
+}
+
+/* Header */
+.header {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding-bottom: 20px;
+  margin-bottom: 40px;
+  border-bottom: 3px solid var(--tinta);
+}
+
+.header__bola { font-size: 3rem; line-height: 1; }
+
+.header__titulo {
+  font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif;
+  font-weight: 700;
+  font-size: clamp(2.2rem, 6vw, 3.6rem);
+  line-height: 1;
+  letter-spacing: 0.01em;
+  color: var(--quadra);
+}
+
+.header__subtitulo {
+  margin-top: 4px;
+  color: var(--tinta-suave);
+  font-size: 1rem;
+}
+
+/* Grade */
+.grade {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+/* Card */
+.card {
+  background: #fff;
+  border-radius: var(--raio);
+  overflow: hidden;
+  border: 1px solid #d9d3c4;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 28px -12px rgba(20, 33, 61, 0.35);
+}
+
+.card__foto {
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  background: #e8e3d6;
+}
+
+.card__foto img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+}
+
+.card__info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 14px 16px 16px;
+  border-top: 5px solid var(--cor);
+}
+
+.card__nome {
+  font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif;
+  font-weight: 700;
+  font-size: 1.45rem;
+  line-height: 1.1;
+}
+
+.card__posicao {
+  color: var(--tinta-suave);
+  font-size: 0.95rem;
+}
+
+/* Responsivo */
+@media (max-width: 820px) {
+  .grade { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 520px) {
+  .grade { grid-template-columns: 1fr; }
+  .pagina { padding-top: 36px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card { transition: none; }
+  .card:hover { transform: none; }
+}
